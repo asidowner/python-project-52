@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% load static %}
+{% block link %}
+    <link href="https://getbootstrap.com/docs/4.0/examples/sign-in/signin.css" rel="stylesheet">
+{% endblock link %}
+{% block title %}{% trans "Sign in" %}{% endblock %}
+
+{% block additional %}{% bootstrap_messages %}{% endblock %}
+{% block content %}
+    {% if not user.is_authenticated %}
+        <form action="" method="post" class="form-signin text-center">
+            <h1 class="h3 mb-3 font-weight-normal">{% trans "Please sign in" %}</h1>
+            {{ login_redirect }}
+            {% csrf_token %}
+            {% bootstrap_messages %}
+            {% bootstrap_form_errors form type='fields' layout='inline' %}
+            {% bootstrap_form form layout='inline' %}
+            <button class="btn btn-lg btn-primary btn-block">{% trans 'Sign in' %}</button>
+        </form>
+    {% else %}
+        <div class='text-center'>
+            <p class='lead'>{% trans "You're already sign in..." %}</p>
+            <p class="btn btn-block"><a href="{% url 'home' %}">{% trans 'Back to home' %}</a></p>
+            <p class="btn btn-block"><a href="{% url 'logout' %}">{% trans 'Sign out' %}</a></p>
+        </div>
+    {% endif %}
+{% endblock %}

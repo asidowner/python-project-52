@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block header %}
+    <div class='text-center'>
+        <p class='cover-heading'>{% translate 'Welcome!' %}</p>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class='text-center'>
+        <p class='lead'>
+            {% trans "Some text" %}
+        </p>
+    </div>
+{% endblock content %}

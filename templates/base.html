@@ -1,0 +1,30 @@
+{% load bootstrap4 i18n static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% get_current_language as LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{{ PROJECT_NAME }}{% endblock %}</title>
+    {% block link %}{% endblock %}
+</head>
+<body>
+<div class="cover-container d-flex  w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    {% include 'components/navbar.html' %}
+    {% bootstrap_messages %}
+  </header>
+  <main role="main" class="inner cover container my-5">
+    <h1 class="cover-heading h1 mb-3 font-weight-normal">{% block header %}{% endblock %}</h1>
+    {% block additional %}{% endblock %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="modal-footer mt-auto">
+    {% include 'components/footer.html' %}
+  </footer>
+</div>
+</body>
+</html>
