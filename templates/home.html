@@ -1,16 +1,26 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
-
 {% block header %}
-    <div class='text-center'>
-        <p class='cover-heading'>{% translate 'Welcome!' %}</p>
-    </div>
 {% endblock %}
+{% block title %}{% trans "Task manager" %}{% endblock %}
 {% block content %}
-    <div class='text-center'>
-        <p class='lead'>
-            {% trans "Some text" %}
-        </p>
+    <div class="card">
+        <div class='card-body'>
+            <h1 class='cover-heading h1 mb-3 font-weight-normal'>{% translate 'Welcome!' %}</h1>
+            {% if not user.is_authenticated %}
+                <p class='lead'>
+                    {% trans "To start working with the task manager, please " %}
+                    <a class="link" href="{% url 'auth:login' %}">{% trans 'sign in' %}</a>
+                     {% trans "or" %}
+                    <a class="link" href="{% url 'users:create' %}">{% trans 'sign up' %}</a>
+                </p>
+            {% else %}
+                <p class='lead'>
+                    {% trans "Now you can start working" %}
+                </p>
+                <a class="btn btn-primary" href="{% url 'users:list' %}">{% trans 'Check users' %}</a>
+            {% endif %}
+        </div>
     </div>
 {% endblock content %}

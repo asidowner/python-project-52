@@ -1,0 +1,28 @@
+name: check_task_manager
+
+on: [push, pull_request]
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.x
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          poetry install
+      - name: Run checks
+        run: make check
+        env:
+          SECRET_KEY: secret
+          DATABASE_URL: sqlite:///db.sqlite3
+      - name: Publish code coverage report
+        uses: paambaati/codeclimate-action@v2.6.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage-report-xml

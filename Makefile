@@ -12,14 +12,12 @@ migrate:
 setup:
 	make install
 	make migrate
+	echo "Create superuser"
+	poetry run python manage.py createsuperuser
 
 .PHONY: start
 start:
 	@$(MANAGE) runserver 0.0.0.0:8000
-
-.PHONY: check
-check:
-	poetry check
 
 .PHONY: lint
 lint:
@@ -27,7 +25,19 @@ lint:
 
 .PHONY: test
 test:
-	@$(MANAGE) test
+	@poetry run coverage run --source='.' manage.py test
+
+.PHONY: check
+check: lint test requirements.txt
+
+.PHONY: test-coverage-report
+test-coverage-report: test
+	@poetry run coverage report -m $(ARGS)
+	@poetry run coverage erase
+
+.PHONY: test-coverage-report-xml
+test-coverage-report-xml:
+	poetry run coverage xml
 
 .PHONY: secretkey
 secretkey:
@@ -35,8 +45,12 @@ secretkey:
 
 .PHONY: trans-prepare
 trans-prepare:
-	@$(MANAGE) makemessages --locale ru --add-location file
+	@$(MANAGE) makemessages -a
 
 .PHONY: trans-compile
 trans-compile:
 	@$(MANAGE) compilemessages
+
+.PHONY: requirements.txt
+requirements.txt:
+	poetry export --format requirements.txt --output requirements.txt --extras psycopg2 --without-hashes

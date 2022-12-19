@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Sign up" %}{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <form action="" method="post">
+            <h1 class="cover-heading h2 mb-3 font-weight-normal">{% trans "Change user data" %}</h1>
+            {% csrf_token %}
+            {% bootstrap_form_errors form type='fields' layout='inline' %}
+            {% bootstrap_form form %}
+            <button class="btn btn-lg btn-primary">{% trans 'Submit' %}</button>
+        </form>
+    {% else %}
+    {% endif %}
+{% endblock %}

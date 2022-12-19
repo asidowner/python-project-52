@@ -3,9 +3,9 @@
 <div>
     <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
        aria-haspopup="true" aria-expanded="false">
-        {% trans "Lang" %}
+        {% trans "Language" %}
     </a>
-    <ul class="dropdown-menu" aria-labelledby="some_id_1">
+    <ul class="dropdown-menu" aria-labelledby="lang_drop_menu_id">
         {% get_available_languages as LANGUAGES %}
         {% get_language_info_list for LANGUAGES as languages %}
         {% for language in languages %}
@@ -22,7 +22,7 @@
     </ul>
 </div>
 <div>
-    <a class="nav-link" href="https://github.com/asidowner">
+    <a class="nav-link" href="https://github.com/asidowner" target="_blank">
         @asidowner
     </a>
 </div>

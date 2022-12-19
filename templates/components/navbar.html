@@ -2,32 +2,37 @@
 {% get_current_language as LANGUAGE_CODE %}
 <div class="expand navbar-expand" id="navbarsExample01" style>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0"
-           href="{% url "home" %}">{% trans "Task manager" %}</a>
-        <ul class="navbar-nav px-3">
-            <li>
-                <a class="nav-link" href="#">
-                    {% translate "Users" %}
-                </a>
-            </li>
-            {% if not user.is_authenticated %}
-                <li>
-                    <a class="nav-link" href="{% url "login" %}">
-                        {% translate "Sign in" %}
+        <a class="navbar-brand" style="padding-right: 12px; padding-left: 12px"
+           href="{% url "home" %}">{% trans "Task manager" %}
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "users:list" %}">
+                        {% translate "Users" %}
                     </a>
                 </li>
-                <li>
-                    <a class="nav-link" href="#">
-                        {% translate "Sign up" %}
-                    </a>
-                </li>
-            {% else %}
-                <li>
-                    <a class="nav-link" href="{% url "logout" %}">
-                        {% translate "Sign out" %}
-                    </a>
-                </li>
-            {% endif %}
-        </ul>
+            </ul>
+            <ul class="navbar-nav">
+                {% if not user.is_authenticated %}
+                    <li>
+                        <a class="nav-link" href="{% url "auth:login" %}">
+                            {% translate "Sign in" %}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url "users:create" %}">
+                            {% translate "Sign up" %}
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a class="nav-link" href="{% url "auth:logout" %}">
+                            {% translate "Sign out" %}
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
     </nav>
 </div>

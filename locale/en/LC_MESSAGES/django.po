@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-28 23:49+0400\n"
+"POT-Creation-Date: 2022-12-19 22:10+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,30 +17,160 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: templates/components/footer.html:5
-msgid "Lang"
-msgstr "Lang"
 
-#: templates/components/navbar.html:5
-msgid "Task manager"
-msgstr "Task manager"
+#: task_manager/auth/views.py:8
+msgid "You're successfully logged in"
+msgstr ""
 
-#: templates/components/navbar.html:9
-msgid "Users"
-msgstr "Users"
+#: task_manager/auth/views.py:9
+msgid "You're successfully exited"
+msgstr ""
 
-#: templates/components/navbar.html:14
+#: task_manager/users/views.py:15
+msgid "User is successfully registered"
+msgstr ""
+
+#: task_manager/users/views.py:16
+msgid "User is successfully changed"
+msgstr ""
+
+#: task_manager/users/views.py:17
+msgid "You don't have permission to change another user."
+msgstr ""
+
+#: task_manager/users/views.py:19
+msgid "User is successfully deleted"
+msgstr ""
+
+#: task_manager/users/views.py:20
+msgid "You don't have permission to delete another user."
+msgstr ""
+
+#: templates/auth/login.html:5 templates/auth/login.html:14
+#: templates/components/navbar.html:20
 msgid "Sign in"
 msgstr "Sign in"
 
-#: templates/components/navbar.html:19
+#: templates/auth/login.html:9
+msgid "Please sign in"
+msgstr ""
+
+#: templates/auth/login.html:18
+msgid "You're already sign in..."
+msgstr ""
+
+#: templates/auth/login.html:19 templates/users/create.html:19
+msgid "Back to home"
+msgstr ""
+
+#: templates/auth/login.html:20 templates/components/navbar.html:31
+#: templates/users/create.html:20
+#, fuzzy
+#| msgid "Sign up"
+msgid "Sign out"
+msgstr "Sign up"
+
+#: templates/components/footer.html:6
+#, fuzzy
+#| msgid "Lang"
+msgid "Language"
+msgstr "Lang"
+
+#: templates/components/navbar.html:6
+msgid "Task manager"
+msgstr "Task manager"
+
+#: templates/components/navbar.html:12 templates/users/list.html:4
+msgid "Users"
+msgstr "Users"
+
+#: templates/components/navbar.html:25 templates/users/create.html:5
+#: templates/users/create.html:14 templates/users/delete.html:5
+#: templates/users/update.html:5
 msgid "Sign up"
 msgstr "Sign up"
 
-#: templates/home.html:7
+#: templates/home.html:9
 msgid "Welcome!"
 msgstr "Welcome!"
 
+#: templates/home.html:12
+msgid "To start working with the task manager, please "
+msgstr ""
+
 #: templates/home.html:13
-msgid "Some text"
-msgstr "Some text"
+#, fuzzy
+#| msgid "Sign in"
+msgid "sign in"
+msgstr "Sign in"
+
+#: templates/home.html:14
+msgid "or"
+msgstr ""
+
+#: templates/home.html:15
+#, fuzzy
+#| msgid "Sign up"
+msgid "sign up"
+msgstr "Sign up"
+
+#: templates/home.html:19
+msgid "Now you can start working"
+msgstr ""
+
+#: templates/home.html:21
+msgid "Check users"
+msgstr ""
+
+#: templates/users/create.html:9
+msgid "Please enter your data to sign up"
+msgstr ""
+
+#: templates/users/create.html:18
+msgid "You're already sign up..."
+msgstr ""
+
+#: templates/users/delete.html:9
+msgid "Delete user"
+msgstr ""
+
+#: templates/users/delete.html:13
+msgid "Are you sure you want to delete"
+msgstr ""
+
+#: templates/users/delete.html:14 templates/users/update.html:13
+msgid "Submit"
+msgstr ""
+
+#: templates/users/list.html:10
+msgid "ID"
+msgstr ""
+
+#: templates/users/list.html:11
+#, fuzzy
+#| msgid "Users"
+msgid "Username"
+msgstr "Users"
+
+#: templates/users/list.html:12
+msgid "Full name"
+msgstr ""
+
+#: templates/users/list.html:13
+msgid "Date create"
+msgstr ""
+
+#: templates/users/list.html:25
+msgid "Change"
+msgstr ""
+
+#: templates/users/list.html:27
+msgid "Delete"
+msgstr ""
+
+#: templates/users/update.html:9
+msgid "Change user data"
+msgstr ""
+
+#~ msgid "Some text"
+#~ msgstr "Some text"
