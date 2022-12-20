@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-21 01:10+0300\n"
+"POT-Creation-Date: 2022-12-21 01:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,17 +34,21 @@ msgstr "Вы успешно вышли"
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/statuses/views.py:12
+#: task_manager/statuses/views.py:16
 msgid "Status successfully created"
 msgstr "Стутс успешно создан"
 
-#: task_manager/statuses/views.py:13
+#: task_manager/statuses/views.py:17
 msgid "Status successfully updated"
 msgstr "Статус успешно изменен"
 
-#: task_manager/statuses/views.py:14
+#: task_manager/statuses/views.py:18
 msgid "Status successfully deleted"
 msgstr "Статус успешно удален"
+
+#: task_manager/statuses/views.py:19
+msgid "It is impossible to delete a status because it is in use"
+msgstr "Невозможно удалить статус, потому что он используется"
 
 #: task_manager/tasks/forms.py:17 task_manager/tasks/forms.py:18
 msgid "Description"
