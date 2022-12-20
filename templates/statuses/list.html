@@ -20,7 +20,7 @@
                 <tr>
                     <th scope="row">{{ status.id }}</th>
                     <td>{{ status.name }}</td>
-                    <td>{{ status.date_joined|date:"d.m.Y G:i" }}</td>
+                    <td>{{ status.date_create|date:"d.m.Y G:i" }}</td>
                     <td>
                         <a href="{% url 'statuses:update' pk=status.id %}">{% trans 'Change' %}</a>
                         <br>
