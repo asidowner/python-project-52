@@ -36,9 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
     'task_manager.users',
     'task_manager.auth',
-    'bootstrap4',
+    'task_manager.statuses',
 ]
 
 MIDDLEWARE = [
@@ -142,6 +143,6 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
 
-LOGIN_URL = 'users:login'
+LOGIN_URL = 'auth:login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

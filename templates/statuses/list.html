@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block title %}{% trans "Statuses" %}{% endblock %}
+{% block header %}{% translate 'Statuses' %}{% endblock %}
+{% block content %}
+    <a class="nav-link" href="{% url 'statuses:create' %}">{% trans 'Create status' %}</a>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">{% trans 'ID' %}</th>
+                <th scope="col">{% trans 'Name' %}</th>
+                <th scope="col">{% trans 'Date create' %}</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for status in object_list %}
+                <tr>
+                    <th scope="row">{{ status.id }}</th>
+                    <td>{{ status.name }}</td>
+                    <td>{{ status.date_joined|date:"d.m.Y G:i" }}</td>
+                    <td>
+                        <a href="{% url 'statuses:update' pk=status.id %}">{% trans 'Change' %}</a>
+                        <br>
+                        <a href="{% url 'statuses:delete' pk=status.id %}">{% trans 'Delete' %}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

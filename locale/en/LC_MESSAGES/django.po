@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-19 22:10+0400\n"
+"POT-Creation-Date: 2022-12-20 15:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,23 @@ msgstr ""
 
 #: task_manager/auth/views.py:9
 msgid "You're successfully exited"
+msgstr ""
+
+#: task_manager/statuses/forms.py:8 task_manager/statuses/forms.py:9
+#: templates/statuses/list.html:13
+msgid "Name"
+msgstr ""
+
+#: task_manager/statuses/views.py:12
+msgid "Status successfully created"
+msgstr ""
+
+#: task_manager/statuses/views.py:13
+msgid "Status successfully updated"
+msgstr ""
+
+#: task_manager/statuses/views.py:14
+msgid "Status successfully deleted"
 msgstr ""
 
 #: task_manager/users/views.py:15
@@ -47,7 +64,7 @@ msgid "You don't have permission to delete another user."
 msgstr ""
 
 #: templates/auth/login.html:5 templates/auth/login.html:14
-#: templates/components/navbar.html:20
+#: templates/components/navbar.html:27
 msgid "Sign in"
 msgstr "Sign in"
 
@@ -63,7 +80,7 @@ msgstr ""
 msgid "Back to home"
 msgstr ""
 
-#: templates/auth/login.html:20 templates/components/navbar.html:31
+#: templates/auth/login.html:20 templates/components/navbar.html:38
 #: templates/users/create.html:20
 #, fuzzy
 #| msgid "Sign up"
@@ -76,50 +93,100 @@ msgstr "Sign up"
 msgid "Language"
 msgstr "Lang"
 
-#: templates/components/navbar.html:6
+#: templates/components/navbar.html:6 templates/home.html:6
 msgid "Task manager"
 msgstr "Task manager"
 
 #: templates/components/navbar.html:12 templates/users/list.html:4
+#: templates/users/list.html:5
 msgid "Users"
 msgstr "Users"
 
-#: templates/components/navbar.html:25 templates/users/create.html:5
+#: templates/components/navbar.html:18 templates/statuses/list.html:4
+#: templates/statuses/list.html:5
+msgid "Statuses"
+msgstr ""
+
+#: templates/components/navbar.html:32 templates/statuses/delete.html:5
+#: templates/statuses/update.html:5 templates/users/create.html:5
 #: templates/users/create.html:14 templates/users/delete.html:5
 #: templates/users/update.html:5
 msgid "Sign up"
 msgstr "Sign up"
 
-#: templates/home.html:9
+#: templates/home.html:10
 msgid "Welcome!"
 msgstr "Welcome!"
 
-#: templates/home.html:12
+#: templates/home.html:13
 msgid "To start working with the task manager, please "
 msgstr ""
 
-#: templates/home.html:13
+#: templates/home.html:14
 #, fuzzy
 #| msgid "Sign in"
 msgid "sign in"
 msgstr "Sign in"
 
-#: templates/home.html:14
+#: templates/home.html:15
 msgid "or"
 msgstr ""
 
-#: templates/home.html:15
+#: templates/home.html:16
 #, fuzzy
 #| msgid "Sign up"
 msgid "sign up"
 msgstr "Sign up"
 
-#: templates/home.html:19
+#: templates/home.html:20
 msgid "Now you can start working"
 msgstr ""
 
-#: templates/home.html:21
+#: templates/home.html:22
 msgid "Check users"
+msgstr ""
+
+#: templates/statuses/create.html:5 templates/statuses/create.html:8
+#: templates/statuses/list.html:7
+msgid "Create status"
+msgstr ""
+
+#: templates/statuses/create.html:13
+msgid "Create"
+msgstr ""
+
+#: templates/statuses/delete.html:8
+msgid "Delete status"
+msgstr ""
+
+#: templates/statuses/delete.html:12 templates/users/delete.html:12
+msgid "Are you sure you want to delete"
+msgstr ""
+
+#: templates/statuses/delete.html:13 templates/users/delete.html:13
+#: templates/users/update.html:12
+msgid "Submit"
+msgstr ""
+
+#: templates/statuses/list.html:12 templates/users/list.html:11
+msgid "ID"
+msgstr ""
+
+#: templates/statuses/list.html:14 templates/users/list.html:14
+msgid "Date create"
+msgstr ""
+
+#: templates/statuses/list.html:25 templates/statuses/update.html:12
+#: templates/users/list.html:26
+msgid "Change"
+msgstr ""
+
+#: templates/statuses/list.html:27 templates/users/list.html:28
+msgid "Delete"
+msgstr ""
+
+#: templates/statuses/update.html:8
+msgid "Change status"
 msgstr ""
 
 #: templates/users/create.html:9
@@ -130,45 +197,21 @@ msgstr ""
 msgid "You're already sign up..."
 msgstr ""
 
-#: templates/users/delete.html:9
+#: templates/users/delete.html:8
 msgid "Delete user"
 msgstr ""
 
-#: templates/users/delete.html:13
-msgid "Are you sure you want to delete"
-msgstr ""
-
-#: templates/users/delete.html:14 templates/users/update.html:13
-msgid "Submit"
-msgstr ""
-
-#: templates/users/list.html:10
-msgid "ID"
-msgstr ""
-
-#: templates/users/list.html:11
+#: templates/users/list.html:12
 #, fuzzy
 #| msgid "Users"
 msgid "Username"
 msgstr "Users"
 
-#: templates/users/list.html:12
+#: templates/users/list.html:13
 msgid "Full name"
 msgstr ""
 
-#: templates/users/list.html:13
-msgid "Date create"
-msgstr ""
-
-#: templates/users/list.html:25
-msgid "Change"
-msgstr ""
-
-#: templates/users/list.html:27
-msgid "Delete"
-msgstr ""
-
-#: templates/users/update.html:9
+#: templates/users/update.html:8
 msgid "Change user data"
 msgstr ""
 

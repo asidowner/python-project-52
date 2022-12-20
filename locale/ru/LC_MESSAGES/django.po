@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-19 22:10+0400\n"
+"POT-Creation-Date: 2022-12-20 15:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,23 @@ msgstr "Вы успешно вошли"
 #: task_manager/auth/views.py:9
 msgid "You're successfully exited"
 msgstr "Вы успешно вышли"
+
+#: task_manager/statuses/forms.py:8 task_manager/statuses/forms.py:9
+#: templates/statuses/list.html:13
+msgid "Name"
+msgstr "Имя"
+
+#: task_manager/statuses/views.py:12
+msgid "Status successfully created"
+msgstr "Стутс успешно создан"
+
+#: task_manager/statuses/views.py:13
+msgid "Status successfully updated"
+msgstr "Статус успешно изменен"
+
+#: task_manager/statuses/views.py:14
+msgid "Status successfully deleted"
+msgstr "Статус успешно удален"
 
 #: task_manager/users/views.py:15
 msgid "User is successfully registered"
@@ -49,7 +66,7 @@ msgid "You don't have permission to delete another user."
 msgstr "У вас нет прав на удаление другого пользователя."
 
 #: templates/auth/login.html:5 templates/auth/login.html:14
-#: templates/components/navbar.html:20
+#: templates/components/navbar.html:27
 msgid "Sign in"
 msgstr "Вход"
 
@@ -65,7 +82,7 @@ msgstr "Вы уже вошли..."
 msgid "Back to home"
 msgstr "Вернуться на домашнюю страницу"
 
-#: templates/auth/login.html:20 templates/components/navbar.html:31
+#: templates/auth/login.html:20 templates/components/navbar.html:38
 #: templates/users/create.html:20
 #, fuzzy
 #| msgid "Sign up"
@@ -73,51 +90,102 @@ msgid "Sign out"
 msgstr "Регистрация"
 
 #: templates/components/footer.html:6
-#| msgid "Language"
 msgid "Language"
 msgstr "Язык"
 
-#: templates/components/navbar.html:6
+#: templates/components/navbar.html:6 templates/home.html:6
 msgid "Task manager"
 msgstr "Менеджер задач"
 
 #: templates/components/navbar.html:12 templates/users/list.html:4
+#: templates/users/list.html:5
 msgid "Users"
 msgstr "Пользователи"
 
-#: templates/components/navbar.html:25 templates/users/create.html:5
+#: templates/components/navbar.html:18 templates/statuses/list.html:4
+#: templates/statuses/list.html:5
+msgid "Statuses"
+msgstr "Статусы"
+
+#: templates/components/navbar.html:32 templates/statuses/delete.html:5
+#: templates/statuses/update.html:5 templates/users/create.html:5
 #: templates/users/create.html:14 templates/users/delete.html:5
 #: templates/users/update.html:5
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: templates/home.html:9
+#: templates/home.html:10
 msgid "Welcome!"
 msgstr "Добро пожаловать!"
 
-#: templates/home.html:12
+#: templates/home.html:13
 msgid "To start working with the task manager, please "
 msgstr "Чтобы начать работу с менеджером задач, пожалуйста, "
 
-#: templates/home.html:13
+#: templates/home.html:14
 msgid "sign in"
 msgstr "войдите"
 
-#: templates/home.html:14
+#: templates/home.html:15
 msgid "or"
 msgstr "или"
 
-#: templates/home.html:15
+#: templates/home.html:16
 msgid "sign up"
 msgstr "зарегистрируйтесь"
 
-#: templates/home.html:19
+#: templates/home.html:20
 msgid "Now you can start working"
 msgstr "Теперь вы можете начать работу"
 
-#: templates/home.html:21
+#: templates/home.html:22
 msgid "Check users"
 msgstr "Посмотреть список пользователей"
+
+#: templates/statuses/create.html:5 templates/statuses/create.html:8
+#: templates/statuses/list.html:7
+msgid "Create status"
+msgstr "Создать статус"
+
+#: templates/statuses/create.html:13
+msgid "Create"
+msgstr "Создать"
+
+#: templates/statuses/delete.html:8
+msgid "Delete status"
+msgstr "Удалить статус"
+
+#: templates/statuses/delete.html:12 templates/users/delete.html:12
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: templates/statuses/delete.html:13 templates/users/delete.html:13
+#: templates/users/update.html:12
+msgid "Submit"
+msgstr "Подтвердить"
+
+#: templates/statuses/list.html:12 templates/users/list.html:11
+msgid "ID"
+msgstr "ID"
+
+#: templates/statuses/list.html:14 templates/users/list.html:14
+msgid "Date create"
+msgstr "Дата создания"
+
+#: templates/statuses/list.html:25 templates/statuses/update.html:12
+#: templates/users/list.html:26
+msgid "Change"
+msgstr "Изменить"
+
+#: templates/statuses/list.html:27 templates/users/list.html:28
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/statuses/update.html:8
+#, fuzzy
+#| msgid "Change user data"
+msgid "Change status"
+msgstr "Изменить пользовательские данные"
 
 #: templates/users/create.html:9
 msgid "Please enter your data to sign up"
@@ -127,45 +195,21 @@ msgstr "Введите свои данные для регистрации"
 msgid "You're already sign up..."
 msgstr "Вы уже зарегистрированы"
 
-#: templates/users/delete.html:9
+#: templates/users/delete.html:8
 msgid "Delete user"
 msgstr "Удалить пользователя"
 
-#: templates/users/delete.html:13
-msgid "Are you sure you want to delete"
-msgstr "Вы уверены, что хотите удалить"
-
-#: templates/users/delete.html:14 templates/users/update.html:13
-msgid "Submit"
-msgstr "Подтвердить"
-
-#: templates/users/list.html:10
-msgid "ID"
-msgstr "ID"
-
-#: templates/users/list.html:11
+#: templates/users/list.html:12
 #, fuzzy
 #| msgid "Users"
 msgid "Username"
 msgstr "Пользователи"
 
-#: templates/users/list.html:12
+#: templates/users/list.html:13
 msgid "Full name"
 msgstr "Полное имя"
 
-#: templates/users/list.html:13
-msgid "Date create"
-msgstr "Дата создания"
-
-#: templates/users/list.html:25
-msgid "Change"
-msgstr "Изменить"
-
-#: templates/users/list.html:27
-msgid "Delete"
-msgstr "Удалить"
-
-#: templates/users/update.html:9
+#: templates/users/update.html:8
 msgid "Change user data"
 msgstr "Изменить пользовательские данные"
 

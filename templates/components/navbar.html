@@ -12,6 +12,13 @@
                         {% translate "Users" %}
                     </a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "statuses:list" %}">
+                        {% translate "Statuses" %}
+                    </a>
+                </li>
+                {% endif %}
             </ul>
             <ul class="navbar-nav">
                 {% if not user.is_authenticated %}

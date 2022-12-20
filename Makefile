@@ -17,7 +17,7 @@ setup:
 
 .PHONY: start
 start:
-	@$(MANAGE) runserver 0.0.0.0:8000
+	@$(MANAGE) runserver task-manager.localhost:8000
 
 .PHONY: lint
 lint:
