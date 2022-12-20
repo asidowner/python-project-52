@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block title %}{% trans "Statuses" %}{% endblock %}
+{% block header %}{% translate 'Statuses' %}{% endblock %}
+{% block content %}
+    <a class="nav-link" href="{% url 'tasks:create' %}">{% trans 'Create task' %}</a>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">{% trans 'ID' %}</th>
+                <th scope="col">{% trans 'Name' %}</th>
+                <th scope="col">{% trans 'Status' %}</th>
+                <th scope="col">{% trans 'Author' %}</th>
+                <th scope="col">{% trans 'Executor' %}</th>
+                <th scope="col">{% trans 'Date create' %}</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for task in object_list %}
+                <tr>
+                    <th scope="row">{{ task.id }}</th>
+                    <td>{{ task.name }}</td>
+                    <td>{{ task.status }}</td>
+                    <td>{{ task.author }}</td>
+                    <td>{{ task.executor }}</td>
+                    <td>{{ task.date_create|date:"d.m.Y G:i" }}</td>
+                    <td>
+                        <a href="{% url 'tasks:update' pk=task.id %}">{% trans 'Change' %}</a>
+                        <br>
+                        <a href="{% url 'tasks:delete' pk=task.id %}">{% trans 'Delete' %}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

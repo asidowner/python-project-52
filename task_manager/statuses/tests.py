@@ -66,9 +66,7 @@ class CRUDStatusTest(TestCase):
     def test_success_create_status(self):
         response: TemplateResponse = self._create_status()
         self.assertRedirects(response, reverse_lazy('statuses:list'))
-        self.assertTrue(
-            TaskStatus.objects.filter(name=self._status_name),
-        )
+        self.assertTrue(self._get_status_object())
 
     def test_success_update_status(self):
         self._create_status()

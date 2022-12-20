@@ -6,7 +6,6 @@
 {% block content %}
     <form action="" method="post">
         <h1 class="cover-heading h2 mb-3 font-weight-normal">{% trans "Create status" %}</h1>
-        {{ login_redirect }}
         {% csrf_token %}
         {% bootstrap_form_errors form type='fields' layout='inline' %}
         {% bootstrap_form form layout='inline' %}

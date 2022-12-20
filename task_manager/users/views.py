@@ -61,6 +61,9 @@ class UserDeleteView(LoginRequiredMixin,
     success_message = _DELETE_USER_SUCCESS_MESSAGE
 
     def test_func(self):
+        return self._is_self_user()
+
+    def _is_self_user(self):
         return self.kwargs['pk'] == self.request.user.id
 
     def handle_no_permission(self):
