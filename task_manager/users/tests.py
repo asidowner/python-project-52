@@ -10,6 +10,7 @@ from faker.generator import Generator
 from task_manager.users.forms import UserCreateForm
 
 
+# ToDo Подумать как привязать к AbstractCRUDTest
 class RegistrationPageViewTest(TestCase):
 
     def setUp(self) -> None:
@@ -87,7 +88,7 @@ class RegistrationPageViewTest(TestCase):
         )
 
 
-class CRUDUsersTest(TestCase):
+class UsersTest(TestCase):
     """Test user registration."""
 
     def setUp(self):

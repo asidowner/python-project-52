@@ -2,13 +2,14 @@
 {% load bootstrap4 %}
 {% load i18n %}
 {% load static %}
-{% block title %}{% trans "Change task" %}{% endblock %}
+{% block title %}{% trans "Delete label" %}{% endblock %}
 {% block content %}
     <form action="" method="post">
-        <h1 class="cover-heading h2 mb-3 font-weight-normal">{% trans "Change task" %}</h1>
+        <h1 class="cover-heading h2 mb-3 font-weight-normal">{% trans "Delete label" %}</h1>
         {% csrf_token %}
         {% bootstrap_form_errors form type='fields' layout='inline' %}
         {% bootstrap_form form layout='inline' %}
-        <button class="btn btn-lg btn-primary">{% trans 'Change' %}</button>
+        <p>{% trans "Are you sure you want to delete" %} {{ object.name }}?</p>
+        <button class="btn btn-lg btn-danger">{% trans 'Submit' %}</button>
     </form>
 {% endblock %}

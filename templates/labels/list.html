@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block title %}{% trans "Labels" %}{% endblock %}
+{% block header %}{% translate 'Labels' %}{% endblock %}
+{% block content %}
+    <a class="nav-link" href="{% url 'labels:create' %}">{% trans 'Create label' %}</a>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">{% trans 'ID' %}</th>
+                <th scope="col">{% trans 'Name' %}</th>
+                <th scope="col">{% trans 'Date create' %}</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for label in object_list %}
+                <tr>
+                    <th scope="row">{{ label.id }}</th>
+                    <td>{{ label.name }}</td>
+                    <td>{{ label.date_create|date:"d.m.Y G:i" }}</td>
+                    <td>
+                        <a href="{% url 'labels:update' pk=label.id %}">{% trans 'Change' %}</a>
+                        <br>
+                        <a href="{% url 'labels:delete' pk=label.id %}">{% trans 'Delete' %}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

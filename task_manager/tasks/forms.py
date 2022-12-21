@@ -1,10 +1,11 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from django.contrib.auth import get_user_model
+from django.contrib.auth import models
 
 from task_manager.tasks import models as tasks_models
 from task_manager.statuses import models as statuses_models
+from task_manager.labels import models as labels_models
 
 
 class TaskForm(forms.ModelForm):
@@ -26,13 +27,19 @@ class TaskForm(forms.ModelForm):
         widget=forms.Select(attrs={'class': 'form-control'})
     )
     executor = forms.ModelChoiceField(
-        queryset=get_user_model().objects.all(),
+        queryset=models.User.objects.all(),
         label=_('Executor'),
         empty_label='---------',
         required=True,
         widget=forms.Select(attrs={'class': 'form-control'})
     )
+    labels = forms.ModelMultipleChoiceField(
+        queryset=labels_models.TaskLabel.objects.all(),
+        label=_('Labels'),
+        required=False,
+        widget=forms.SelectMultiple(attrs={'class': 'form-control'})
+    )
 
     class Meta:
         model = tasks_models.Task
-        fields = ('name', 'description', 'status', 'executor')
+        fields = ('name', 'description', 'status', 'executor', 'labels')

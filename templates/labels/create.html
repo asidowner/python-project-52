@@ -2,13 +2,13 @@
 {% load bootstrap4 %}
 {% load i18n %}
 {% load static %}
-{% block title %}{% trans "Change task" %}{% endblock %}
+{% block title %}{% trans "Create label" %}{% endblock %}
 {% block content %}
     <form action="" method="post">
-        <h1 class="cover-heading h2 mb-3 font-weight-normal">{% trans "Change task" %}</h1>
+        <h1 class="cover-heading h2 mb-3 font-weight-normal">{% trans "Create label" %}</h1>
         {% csrf_token %}
         {% bootstrap_form_errors form type='fields' layout='inline' %}
         {% bootstrap_form form layout='inline' %}
-        <button class="btn btn-lg btn-primary">{% trans 'Change' %}</button>
+        <button class="btn btn-lg btn-primary">{% trans 'Create' %}</button>
     </form>
 {% endblock %}

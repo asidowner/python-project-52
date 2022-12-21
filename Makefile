@@ -43,13 +43,13 @@ test-coverage-report-xml:
 secretkey:
 	poetry run python -c 'from django.utils.crypto import get_random_string; print(get_random_string(60))'
 
-.PHONY: trans-prepare
-trans-prepare:
-	@$(MANAGE) makemessages -a
+.PHONY: transprepare
+transprepare:
+	poetry run django-admin makemessages --locale ru --add-location file
 
-.PHONY: trans-compile
-trans-compile:
-	@$(MANAGE) compilemessages
+.PHONY: transcompile
+transcompile:
+	poetry run django-admin compilemessages
 
 .PHONY: requirements.txt
 requirements.txt:
