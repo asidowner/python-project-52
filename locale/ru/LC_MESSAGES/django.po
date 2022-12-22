@@ -64,7 +64,7 @@ msgstr "Статус успешно изменён"
 
 #: task_manager/statuses/views.py
 msgid "Status successfully deleted"
-msgstr "Статус успешно удален"
+msgstr "Статус успешно удалён"
 
 #: task_manager/statuses/views.py
 msgid "It is impossible to delete a status because it is in use"
@@ -119,7 +119,7 @@ msgstr "У вас нет прав на изменение другого пол�
 
 #: task_manager/users/views.py
 msgid "User is successfully deleted"
-msgstr "Пользователь успешно удален"
+msgstr "Пользователь успешно удалён"
 
 #: task_manager/users/views.py
 msgid "You don't have permission to delete another user."
