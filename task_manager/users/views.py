@@ -31,22 +31,12 @@ class UserListView(generic.ListView):
     template_name = 'users/list.html'
 
 
-class UserCreateView(UserPassesTestMixin,
-                     SuccessMessageMixin,
+class UserCreateView(SuccessMessageMixin,
                      generic.CreateView):
     form_class = UserCreateForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('auth:login')
     success_message = _CREATE_USER_SUCCESS_MESSAGE
-    error_url = reverse_lazy('home')
-    error_message_permission = _CREATE_USER_ERROR_MESSAGE
-
-    def test_func(self):
-        return not self.request.user.is_authenticated
-
-    def handle_no_permission(self):
-        messages.error(self.request, self.error_message_permission)
-        return redirect(self.error_url)
 
 
 class UserUpdateView(CustomLoginRequiredMixin,
