@@ -22,7 +22,7 @@ msgstr ""
 
 #: task_manager/auth/views.py
 msgid "You're successfully logged in"
-msgstr "Вы успешно вошли"
+msgstr "Вы залогинены"
 
 #: task_manager/auth/views.py
 msgid "You're successfully exited"
