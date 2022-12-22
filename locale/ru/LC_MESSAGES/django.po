@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-22 20:23+0400\n"
+"POT-Creation-Date: 2022-12-22 22:34+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,6 +120,10 @@ msgstr "Пользователь успешно удален"
 #: task_manager/users/views.py
 msgid "You don't have permission to delete another user."
 msgstr "У вас нет прав на удаление другого пользователя."
+
+#: task_manager/users/views.py
+msgid "Unable to delete a user because he is being used"
+msgstr "Невозможно удалить пользователя, потому что он используется"
 
 #: templates/auth/login.html templates/components/navbar.html
 msgid "Sign in"
