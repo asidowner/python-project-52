@@ -1,8 +1,31 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 {% block title %}{% trans "Tasks" %}{% endblock %}
 {% block header %}{% translate 'Tasks' %}{% endblock %}
+{% block additional %}
+    <div class="accordion" id="accordionFilter">
+        <div class="card mb-3">
+            <div class="card-header" id="headingFilter">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFilter"
+                            aria-expanded="true" aria-controls="collapseFilter">
+                        {% trans 'Filter' %}
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFilter" class="collapse" aria-labelledby="headingFilter" data-parent="#accordionFilter">
+                <div class="card-body bg-light">
+                    <form method="get" class="form-vertical center">
+                        {% bootstrap_form filter.form %}
+                        <button class="btn-sm btn-lg btn-primary" type="submit">{% trans 'Submit' %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock additional %}
 {% block content %}
     <a class="nav-link" href="{% url 'tasks:create' %}">{% trans 'Create task' %}</a>
     <div class="table-responsive">

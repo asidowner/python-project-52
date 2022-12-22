@@ -15,6 +15,7 @@ django-bootstrap4 = "^22.3"
 psycopg2 = { version = "^2.9.5", optional = true }
 psycopg2-binary = { version = "^2.9.5", optional = true }
 pydantic = "^1.10.2"
+django-filter = "^22.1"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"

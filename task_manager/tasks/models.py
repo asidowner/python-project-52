@@ -16,3 +16,6 @@ class Task(models.Model):
     labels = models.ManyToManyField('labels.TaskLabel',
                                     related_name='labels')
     date_create = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

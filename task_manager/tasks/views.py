@@ -4,10 +4,10 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
+from django_filters.views import FilterView
 from django.utils.translation import gettext_lazy as _
 
-from task_manager.tasks import models
-from task_manager.tasks import forms
+from task_manager.tasks import models, forms, filters
 
 _CREATE_TASK_SUCCESS_MESSAGE = _('Task successfully created')
 _UPDATE_TASK_SUCCESS_MESSAGE = _('Task successfully updated')
@@ -15,9 +15,10 @@ _DELETE_TASK_SUCCESS_MESSAGE = _('Task successfully deleted')
 
 
 class TaskListView(LoginRequiredMixin,
-                   generic.ListView):
+                   FilterView):
     model = models.Task
     template_name = 'tasks/list.html'
+    filterset_class = filters.TaskFilter
 
 
 class TaskCreateView(LoginRequiredMixin,

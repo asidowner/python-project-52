@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-22 02:49+0400\n"
+"POT-Creation-Date: 2022-12-22 20:23+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,17 +66,23 @@ msgstr "Статус успешно удален"
 msgid "It is impossible to delete a status because it is in use"
 msgstr "Невозможно удалить статус, потому что он используется"
 
-#: task_manager/tasks/forms.py
-msgid "Description"
-msgstr "Описание"
-
-#: task_manager/tasks/forms.py templates/tasks/list.html
+#: task_manager/tasks/filters.py task_manager/tasks/forms.py
+#: templates/tasks/list.html
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/forms.py templates/tasks/list.html
+#: task_manager/tasks/filters.py task_manager/tasks/forms.py
+#: templates/tasks/list.html
 msgid "Executor"
 msgstr "Исполнитель"
+
+#: task_manager/tasks/filters.py
+msgid "Label"
+msgstr "Метка"
+
+#: task_manager/tasks/forms.py
+msgid "Description"
+msgstr "Описание"
 
 #: task_manager/tasks/forms.py templates/components/navbar.html
 #: templates/labels/list.html
@@ -207,8 +213,8 @@ msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
 #: templates/labels/delete.html templates/statuses/delete.html
-#: templates/tasks/delete.html templates/users/delete.html
-#: templates/users/update.html
+#: templates/tasks/delete.html templates/tasks/list.html
+#: templates/users/delete.html templates/users/update.html
 msgid "Submit"
 msgstr "Подтвердить"
 
@@ -257,6 +263,10 @@ msgstr "Создать задачу"
 #: templates/tasks/delete.html
 msgid "Delete task"
 msgstr "Удалить метку"
+
+#: templates/tasks/list.html
+msgid "Filter"
+msgstr "Фильтр"
 
 #: templates/tasks/list.html
 msgid "Author"

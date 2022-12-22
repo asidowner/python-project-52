@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from django.contrib.auth import models
+from django.contrib.auth import models as auth_models
 
 from task_manager.tasks import models as tasks_models
 from task_manager.statuses import models as statuses_models
@@ -27,7 +27,7 @@ class TaskForm(forms.ModelForm):
         widget=forms.Select(attrs={'class': 'form-control'})
     )
     executor = forms.ModelChoiceField(
-        queryset=models.User.objects.all(),
+        queryset=auth_models.User.objects.all(),
         label=_('Executor'),
         empty_label='---------',
         required=True,
