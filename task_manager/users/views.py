@@ -71,7 +71,6 @@ class UserUpdateView(CustomLoginRequiredMixin,
 
 
 class UserDeleteView(CustomLoginRequiredMixin,
-                     SuccessMessageMixin,
                      generic.DeleteView):
     model = auth_models.User
     template_name = 'users/delete.html'
@@ -90,6 +89,7 @@ class UserDeleteView(CustomLoginRequiredMixin,
         except ProtectedError:
             messages.error(self.request, self.error_message_is_used)
             return redirect(self.error_url)
+        messages.success(self.request, self.success_message)
         return redirect(self.success_url)
 
     def _is_self_user(self) -> bool:
