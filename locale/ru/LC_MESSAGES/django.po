@@ -60,7 +60,7 @@ msgstr "Стутус успешно создан"
 
 #: task_manager/statuses/views.py
 msgid "Status successfully updated"
-msgstr "Статус успешно изменен"
+msgstr "Статус успешно изменён"
 
 #: task_manager/statuses/views.py
 msgid "Status successfully deleted"
@@ -111,7 +111,7 @@ msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py
 msgid "User is successfully changed"
-msgstr "Пользователь успешно изменен"
+msgstr "Пользователь успешно изменён"
 
 #: task_manager/users/views.py
 msgid "You don't have permission to change another user."
