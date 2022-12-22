@@ -53,4 +53,4 @@ transcompile:
 
 .PHONY: requirements.txt
 requirements.txt:
-	poetry export --format requirements.txt --output requirements.txt --extras psycopg2 --without-hashes
+	poetry export --format requirements.txt --output requirements.txt --without-hashes
