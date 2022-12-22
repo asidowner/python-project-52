@@ -149,9 +149,12 @@ LOGIN_URL = 'auth:login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-ROLLBAR = {
-    'access_token': misc.getenv('ROLLBAR_ACCESS_TOKEN'),
-    'environment': 'development' if DEBUG else 'production',
-    'code_version': '1.0',
-    'root': BASE_DIR,
-}
+ROLLBAR_ACCESS_TOKEN = os.getenv('ROLLBAR_ACCESS_TOKEN')
+
+if ROLLBAR_ACCESS_TOKEN:
+    ROLLBAR = {
+        'access_token': ROLLBAR_ACCESS_TOKEN,
+        'environment': 'development' if DEBUG else 'production',
+        'code_version': '1.0',
+        'root': BASE_DIR,
+    }
