@@ -4,6 +4,7 @@ from django.views import generic
 from django.shortcuts import redirect
 from django.contrib import messages
 
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.db.models import ProtectedError
 from django.contrib.auth import models as auth_models
 from django.contrib.messages.views import SuccessMessageMixin
@@ -14,6 +15,7 @@ from task_manager.mixins import CustomLoginRequiredMixin
 from task_manager.users.forms import UserCreateForm
 
 _CREATE_USER_SUCCESS_MESSAGE = _('User is successfully registered')
+_CREATE_USER_ERROR_MESSAGE = _("You're already sign up...")
 _UPDATE_USER_SUCCESS_MESSAGE = _('User is successfully changed')
 _UPDATE_USER_PERMISSION_ERROR_MESSAGE = _("You don't have permission"
                                           " to change another user.")
@@ -29,11 +31,22 @@ class UserListView(generic.ListView):
     template_name = 'users/list.html'
 
 
-class UserCreateView(SuccessMessageMixin, generic.CreateView):
+class UserCreateView(UserPassesTestMixin,
+                     SuccessMessageMixin,
+                     generic.CreateView):
     form_class = UserCreateForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('auth:login')
     success_message = _CREATE_USER_SUCCESS_MESSAGE
+    error_url = reverse_lazy('home')
+    error_message_permission = _CREATE_USER_ERROR_MESSAGE
+
+    def test_func(self):
+        return not self.request.user.is_authenticated
+
+    def handle_no_permission(self):
+        messages.error(self.request, self.error_message_permission)
+        return redirect(self.error_url)
 
 
 class UserUpdateView(CustomLoginRequiredMixin,

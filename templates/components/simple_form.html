@@ -4,8 +4,7 @@
 {% load static %}
 {% block title %}{% endblock %}
 {% block content %}
-    {% block form %}
-    <form action="" method="post">
+    <form method="post">
         <h1 class="cover-heading h2 mb-3 font-weight-normal">{% block form_header %}{% endblock %}</h1>
         {% csrf_token %}
         {% bootstrap_form_errors form type='fields' %}
@@ -15,5 +14,4 @@
             {% block form_button_text %}{% trans 'Submit' %}{% endblock %}
         </button>
     </form>
-    {% endblock form %}
 {% endblock %}

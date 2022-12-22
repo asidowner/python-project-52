@@ -1,15 +1,5 @@
 {% extends "components/simple_form.html" %}
 {% load i18n %}
-{% if user.is_authenticated %}
-    {% block form %}
-        <div class='text-center'>
-            <p class='lead'>{% trans "You're already sign up..." %}</p>
-            <p class="btn btn-block"><a href="{% url 'home' %}">{% trans 'Back to home' %}</a></p>
-            <p class="btn btn-block"><a href="{% url 'auth:logout' %}">{% trans 'Sign out' %}</a></p>
-        </div>
-    {% endblock %}
-{% else %}
-    {% block title %}{% trans "Register" %}{% endblock %}
-    {% block form_header %}{% trans "Please enter your data to sign up" %}{% endblock %}
-    {% block form_button_text %}{% trans 'Register' %}{% endblock %}
-{% endif %}
+{% block title %}{% trans "Register" %}{% endblock %}
+{% block form_header %}{% trans "Please enter your data to sign up" %}{% endblock %}
+{% block form_button_text %}{% trans 'Register' %}{% endblock %}
