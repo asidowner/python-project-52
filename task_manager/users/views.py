@@ -4,7 +4,6 @@ from django.views import generic
 from django.shortcuts import redirect
 from django.contrib import messages
 
-from django.contrib.auth.mixins import UserPassesTestMixin
 from django.db.models import ProtectedError
 from django.contrib.auth import models as auth_models
 from django.contrib.messages.views import SuccessMessageMixin
