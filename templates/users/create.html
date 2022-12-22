@@ -2,7 +2,7 @@
 {% load bootstrap4 %}
 {% load i18n %}
 {% load static %}
-{% block title %}{% trans "Sign up" %}{% endblock %}
+{% block title %}{% trans "Register" %}{% endblock %}
 {% block content %}
     {% if not user.is_authenticated %}
         <form action="" method="post">
@@ -11,7 +11,7 @@
             {% csrf_token %}
             {% bootstrap_form_errors form type='fields' %}
             {% bootstrap_form form %}
-            <button class="btn btn-lg btn-primary">{% trans 'Sign up' %}</button>
+            <button class="btn btn-lg btn-primary">{% trans 'Register' %}</button>
         </form>
     {% else %}
         <div class='text-center'>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-23 00:54+0400\n"
+"POT-Creation-Date: 2022-12-23 01:00+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -174,7 +174,7 @@ msgstr "Статусы"
 msgid "Tasks"
 msgstr "Задачи"
 
-#: templates/components/navbar.html templates/users/create.html
+#: templates/components/navbar.html
 msgid "Sign up"
 msgstr "Регистрация"
 
@@ -287,6 +287,10 @@ msgstr "Автор"
 #: templates/tasks/update.html
 msgid "Change task"
 msgstr "Изменить задачу"
+
+#: templates/users/create.html
+msgid "Register"
+msgstr "Зарегистрировать"
 
 #: templates/users/create.html
 msgid "Please enter your data to sign up"
