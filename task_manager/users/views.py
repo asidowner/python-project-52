@@ -6,17 +6,17 @@ from django.contrib import messages
 
 from django.db.models import ProtectedError
 from django.contrib.auth import models as auth_models
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.utils.translation import gettext_lazy as _
 
+from task_manager.mixins import CustomLoginRequiredMixin
 from task_manager.users.forms import UserCreateForm
 
 _CREATE_USER_SUCCESS_MESSAGE = _('User is successfully registered')
 _UPDATE_USER_SUCCESS_MESSAGE = _('User is successfully changed')
-_UPDATE_USER_ERROR_MESSAGE = _("You don't have permission"
-                               " to change another user.")
+_UPDATE_USER_PERMISSION_ERROR_MESSAGE = _("You don't have permission"
+                                          " to change another user.")
 _DELETE_USER_SUCCESS_MESSAGE = _('User is successfully deleted')
 _DELETE_USER_PERMISSION_ERROR_MESSAGE = _("You don't have permission"
                                           " to delete another user.")
@@ -36,8 +36,7 @@ class UserCreateView(SuccessMessageMixin, generic.CreateView):
     success_message = _CREATE_USER_SUCCESS_MESSAGE
 
 
-class UserUpdateView(LoginRequiredMixin,
-                     UserPassesTestMixin,
+class UserUpdateView(CustomLoginRequiredMixin,
                      SuccessMessageMixin,
                      generic.UpdateView):
     model = auth_models.User
@@ -45,17 +44,20 @@ class UserUpdateView(LoginRequiredMixin,
     template_name = 'users/update.html'
     success_url = reverse_lazy('users:list')
     success_message = _UPDATE_USER_SUCCESS_MESSAGE
+    error_url = reverse_lazy('users:list')
+    error_message_permission = _UPDATE_USER_PERMISSION_ERROR_MESSAGE
 
-    def test_func(self):
+    def form_valid(self, form):
+        if not self._is_self_user():
+            messages.error(self.request, self.error_message_permission)
+            return redirect(self.error_url)
+        return super(UserUpdateView, self).form_valid(form)
+
+    def _is_self_user(self) -> bool:
         return self.kwargs['pk'] == self.request.user.id
 
-    def handle_no_permission(self):
-        messages.error(self.request, _UPDATE_USER_ERROR_MESSAGE)
-        return redirect(reverse_lazy('users:list'))
 
-
-class UserDeleteView(LoginRequiredMixin,
-                     UserPassesTestMixin,
+class UserDeleteView(CustomLoginRequiredMixin,
                      SuccessMessageMixin,
                      generic.DeleteView):
     model = auth_models.User
@@ -67,6 +69,9 @@ class UserDeleteView(LoginRequiredMixin,
     error_message_permission = _DELETE_USER_PERMISSION_ERROR_MESSAGE
 
     def form_valid(self, form):
+        if not self._is_self_user():
+            messages.error(self.request, self.error_message_permission)
+            return redirect(self.error_url)
         try:
             self.object.delete()
         except ProtectedError:
@@ -74,12 +79,5 @@ class UserDeleteView(LoginRequiredMixin,
             return redirect(self.error_url)
         return redirect(self.success_url)
 
-    def test_func(self):
-        return self._is_self_user()
-
     def _is_self_user(self) -> bool:
         return self.kwargs['pk'] == self.request.user.id
-
-    def handle_no_permission(self):
-        messages.error(self.request, self.error_message_permission)
-        return redirect(self.error_url)

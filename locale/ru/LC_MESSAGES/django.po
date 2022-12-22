@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-23 00:16+0400\n"
+"POT-Creation-Date: 2022-12-23 00:54+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "Вы залогинены"
 
 #: task_manager/auth/views.py
 msgid "You're successfully exited"
-msgstr "Вы успешно вышли"
+msgstr "Вы разлогинены"
 
 #: task_manager/labels/forms.py task_manager/statuses/forms.py
 #: task_manager/tasks/forms.py templates/labels/list.html
@@ -49,6 +49,10 @@ msgstr "Метка успешно удалена"
 #: task_manager/labels/views.py
 msgid "It is impossible to delete a label because it is in use"
 msgstr "Невозможно удалить метку, потому что он используется"
+
+#: task_manager/mixins.py
+msgid "You are not logged in! Please log in."
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
 #: task_manager/statuses/views.py
 msgid "Status successfully created"

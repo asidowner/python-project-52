@@ -4,13 +4,12 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.db.models import ProtectedError
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.utils.translation import gettext_lazy as _
 
-from task_manager.labels import models
-from task_manager.labels import forms
+from task_manager.mixins import CustomLoginRequiredMixin
+from task_manager.labels import models, forms
 
 
 _CREATE_LABEL_SUCCESS_MESSAGE = _('Label successfully created')
@@ -20,13 +19,13 @@ _DELETE_LABEL_ERROR_MESSAGE = _('It is impossible to delete a'
                                 ' label because it is in use')
 
 
-class LabelListView(LoginRequiredMixin,
+class LabelListView(CustomLoginRequiredMixin,
                     generic.ListView):
     model = models.TaskLabel
     template_name = 'labels/list.html'
 
 
-class LabelCreateView(LoginRequiredMixin,
+class LabelCreateView(CustomLoginRequiredMixin,
                       SuccessMessageMixin,
                       generic.CreateView):
     form_class = forms.TaskLabelForm
@@ -35,7 +34,7 @@ class LabelCreateView(LoginRequiredMixin,
     success_message = _CREATE_LABEL_SUCCESS_MESSAGE
 
 
-class LabelUpdateView(LoginRequiredMixin,
+class LabelUpdateView(CustomLoginRequiredMixin,
                       SuccessMessageMixin,
                       generic.UpdateView):
     model = models.TaskLabel
@@ -45,7 +44,7 @@ class LabelUpdateView(LoginRequiredMixin,
     success_message = _UPDATE_LABEL_SUCCESS_MESSAGE
 
 
-class LabelDeleteView(LoginRequiredMixin,
+class LabelDeleteView(CustomLoginRequiredMixin,
                       SuccessMessageMixin,
                       generic.DeleteView):
     model = models.TaskLabel

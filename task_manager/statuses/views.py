@@ -4,13 +4,12 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.db.models import ProtectedError
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.utils.translation import gettext_lazy as _
 
-from task_manager.statuses import models
-from task_manager.statuses import forms
+from task_manager.mixins import CustomLoginRequiredMixin
+from task_manager.statuses import models, forms
 
 _CREATE_STATUS_SUCCESS_MESSAGE = _('Status successfully created')
 _UPDATE_STATUS_SUCCESS_MESSAGE = _('Status successfully updated')
@@ -19,13 +18,13 @@ _DELETE_STATUS_ERROR_MESSAGE = _('It is impossible to delete a'
                                  ' status because it is in use')
 
 
-class StatusListView(LoginRequiredMixin,
+class StatusListView(CustomLoginRequiredMixin,
                      generic.ListView):
     model = models.TaskStatus
     template_name = 'statuses/list.html'
 
 
-class StatusCreateView(LoginRequiredMixin,
+class StatusCreateView(CustomLoginRequiredMixin,
                        SuccessMessageMixin,
                        generic.CreateView):
     form_class = forms.TaskStatusForm
@@ -34,7 +33,7 @@ class StatusCreateView(LoginRequiredMixin,
     success_message = _CREATE_STATUS_SUCCESS_MESSAGE
 
 
-class StatusUpdateView(LoginRequiredMixin,
+class StatusUpdateView(CustomLoginRequiredMixin,
                        SuccessMessageMixin,
                        generic.UpdateView):
     model = models.TaskStatus
@@ -44,7 +43,7 @@ class StatusUpdateView(LoginRequiredMixin,
     success_message = _UPDATE_STATUS_SUCCESS_MESSAGE
 
 
-class StatusDeleteView(LoginRequiredMixin,
+class StatusDeleteView(CustomLoginRequiredMixin,
                        SuccessMessageMixin,
                        generic.DeleteView):
     model = models.TaskStatus
