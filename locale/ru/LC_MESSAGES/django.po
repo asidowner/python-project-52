@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-23 01:00+0400\n"
+"POT-Creation-Date: 2022-12-23 01:06+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -225,10 +225,9 @@ msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
 #: templates/labels/delete.html templates/statuses/delete.html
-#: templates/tasks/delete.html templates/tasks/list.html
-#: templates/users/delete.html templates/users/update.html
-msgid "Submit"
-msgstr "Подтвердить"
+#: templates/tasks/delete.html templates/users/delete.html
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: templates/labels/list.html templates/statuses/list.html
 #: templates/tasks/list.html templates/users/list.html
@@ -243,7 +242,7 @@ msgstr "Дата создания"
 #: templates/labels/list.html templates/labels/update.html
 #: templates/statuses/list.html templates/statuses/update.html
 #: templates/tasks/list.html templates/tasks/update.html
-#: templates/users/list.html
+#: templates/users/list.html templates/users/update.html
 msgid "Change"
 msgstr "Изменить"
 
@@ -279,6 +278,10 @@ msgstr "Удалить метку"
 #: templates/tasks/list.html
 msgid "Filter"
 msgstr "Фильтр"
+
+#: templates/tasks/list.html
+msgid "Submit"
+msgstr "Подтвердить"
 
 #: templates/tasks/list.html
 msgid "Author"

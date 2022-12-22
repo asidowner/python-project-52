@@ -1,14 +1,5 @@
-{% extends "base.html" %}
-{% load bootstrap4 %}
+{% extends "components/simple_form.html" %}
 {% load i18n %}
-{% load static %}
 {% block title %}{% trans "Create task" %}{% endblock %}
-{% block content %}
-    <form action="" method="post">
-        <h1 class="cover-heading h2 mb-3 font-weight-normal">{% trans "Create task" %}</h1>
-        {% csrf_token %}
-        {% bootstrap_form_errors form type='fields' layout='inline' %}
-        {% bootstrap_form form %}
-        <button class="btn btn-lg btn-primary">{% trans 'Create' %}</button>
-    </form>
-{% endblock %}
+{% block form_header %}{% trans "Create task" %}{% endblock %}
+{% block form_button_text %}{% trans 'Create' %}{% endblock %}

@@ -1,15 +1,9 @@
-{% extends "base.html" %}
-{% load bootstrap4 %}
+{% extends "components/simple_form.html" %}
 {% load i18n %}
-{% load static %}
 {% block title %}{% trans "Delete user" %}{% endblock %}
-{% block content %}
-    <form action="" method="post">
-        <h1 class="cover-heading h2 mb-3 font-weight-normal">{% trans "Delete user" %}</h1>
-        {% csrf_token %}
-        {% bootstrap_form_errors form type='fields' layout='inline' %}
-        {% bootstrap_form form layout='inline' %}
-        <p>{% trans "Are you sure you want to delete" %} {{ object.first_name }} {{ object.last_name }}?</p>
-        <button class="btn btn-lg btn-danger">{% trans 'Submit' %}</button>
-    </form>
+{% block form_header %}{% trans "Delete user" %}{% endblock %}
+{% block form_additional %}
+    <p>{% trans "Are you sure you want to delete" %} {{ object.first_name }} {{ object.last_name }}?</p>
 {% endblock %}
+{% block form_button_text %}{% trans 'Yes, delete' %}{% endblock %}
+{% block form_button_class %}btn btn-lg btn-danger{% endblock %}

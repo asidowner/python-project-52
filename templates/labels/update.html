@@ -1,14 +1,5 @@
-{% extends "base.html" %}
-{% load bootstrap4 %}
+{% extends "components/simple_form.html" %}
 {% load i18n %}
-{% load static %}
 {% block title %}{% trans "Change label" %}{% endblock %}
-{% block content %}
-    <form action="" method="post">
-        <h1 class="cover-heading h2 mb-3 font-weight-normal">{% trans "Change label" %}</h1>
-        {% csrf_token %}
-        {% bootstrap_form_errors form type='fields' layout='inline' %}
-        {% bootstrap_form form layout='inline' %}
-        <button class="btn btn-lg btn-primary">{% trans 'Change' %}</button>
-    </form>
-{% endblock %}
+{% block form_header %}{% trans "Change label" %}{% endblock %}
+{% block form_button_text %}{% trans 'Change' %}{% endblock %}

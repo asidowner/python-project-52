@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+    {% block form %}
+    <form action="" method="post">
+        <h1 class="cover-heading h2 mb-3 font-weight-normal">{% block form_header %}{% endblock %}</h1>
+        {% csrf_token %}
+        {% bootstrap_form_errors form type='fields' %}
+        {% bootstrap_form form %}
+        {% block form_additional %}{% endblock %}
+        <button class="{% block form_button_class %}btn btn-lg btn-primary{% endblock %}">
+            {% block form_button_text %}{% trans 'Submit' %}{% endblock %}
+        </button>
+    </form>
+    {% endblock form %}
+{% endblock %}
