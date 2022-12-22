@@ -4,14 +4,13 @@ from django.views import generic
 from django.shortcuts import redirect
 from django.contrib import messages
 
-from django.db.models import Q
+from django.db.models import ProtectedError
 from django.contrib.auth import models as auth_models
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.utils.translation import gettext_lazy as _
 
-from task_manager.tasks.models import Task
 from task_manager.users.forms import UserCreateForm
 
 _CREATE_USER_SUCCESS_MESSAGE = _('User is successfully registered')
@@ -62,19 +61,18 @@ class UserDeleteView(LoginRequiredMixin,
     model = auth_models.User
     template_name = 'users/delete.html'
     success_url = reverse_lazy('users:list')
-    error_url = reverse_lazy('users:list')
     success_message = _DELETE_USER_SUCCESS_MESSAGE
+    error_url = reverse_lazy('users:list')
+    error_message_is_used = _DELETE_USER_USED_ERROR_MESSAGE
+    error_message_permission = _DELETE_USER_PERMISSION_ERROR_MESSAGE
 
-    def post(self, request, *args, **kwargs):
-        if self._is_have_task():
-            messages.error(self.request, _DELETE_USER_USED_ERROR_MESSAGE)
+    def form_valid(self, form):
+        try:
+            self.object.delete()
+        except ProtectedError:
+            messages.error(self.request, self.error_message_is_used)
             return redirect(self.error_url)
-        return super().post(request, *args, **kwargs)
-
-    def _is_have_task(self) -> bool:
-        return Task.objects.filter(
-            Q(author=self.request.user) | Q(executor=self.request.user)
-        ).exists()
+        return redirect(self.success_url)
 
     def test_func(self):
         return self._is_self_user()
@@ -83,5 +81,5 @@ class UserDeleteView(LoginRequiredMixin,
         return self.kwargs['pk'] == self.request.user.id
 
     def handle_no_permission(self):
-        messages.error(self.request, _DELETE_USER_PERMISSION_ERROR_MESSAGE)
+        messages.error(self.request, self.error_message_permission)
         return redirect(self.error_url)
