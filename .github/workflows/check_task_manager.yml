@@ -19,6 +19,7 @@ jobs:
         run: make check
         env:
           SECRET_KEY: secret
+          ROLLBAR_ACCESS_TOKEN: secret
           DATABASE_URL: sqlite:///db.sqlite3
       - name: Publish code coverage report
         uses: paambaati/codeclimate-action@v2.6.0
