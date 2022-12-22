@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-22 22:34+0400\n"
+"POT-Creation-Date: 2022-12-23 00:16+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,6 +132,10 @@ msgstr "Вход"
 #: templates/auth/login.html
 msgid "Please sign in"
 msgstr "Пожалуйста войдите в систему"
+
+#: templates/auth/login.html
+msgid "Log in"
+msgstr "Войти"
 
 #: templates/auth/login.html
 msgid "You're already sign in..."
