@@ -1,9 +1,7 @@
-from pathlib import Path
-
 import os
-
 import dj_database_url
 
+from pathlib import Path
 from task_manager.utils import misc
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
