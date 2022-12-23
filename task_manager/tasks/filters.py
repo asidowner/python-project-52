@@ -27,7 +27,7 @@ class TaskFilter(FilterSet):
         queryset=labels_models.TaskLabel.objects.all()
     )
     self_tasks = BooleanFilter(
-        label='Only self tasks',
+        label=_('Only self tasks'),
         field_name='author',
         method='filter_self_tasks',
         widget=forms.CheckboxInput
