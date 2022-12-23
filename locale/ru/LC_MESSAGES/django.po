@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-23 01:06+0400\n"
+"POT-Creation-Date: 2022-12-23 13:50+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,12 +71,12 @@ msgid "It is impossible to delete a status because it is in use"
 msgstr "Невозможно удалить статус, потому что он используется"
 
 #: task_manager/tasks/filters.py task_manager/tasks/forms.py
-#: templates/tasks/list.html
+#: templates/tasks/card.html templates/tasks/list.html
 msgid "Status"
 msgstr "Статус"
 
 #: task_manager/tasks/filters.py task_manager/tasks/forms.py
-#: templates/tasks/list.html
+#: templates/tasks/card.html templates/tasks/list.html
 msgid "Executor"
 msgstr "Исполнитель"
 
@@ -89,7 +89,7 @@ msgid "Description"
 msgstr "Описание"
 
 #: task_manager/tasks/forms.py templates/components/navbar.html
-#: templates/labels/list.html
+#: templates/labels/list.html templates/tasks/card.html
 msgid "Labels"
 msgstr "Метки"
 
@@ -108,6 +108,10 @@ msgstr "Задача успешно удалена"
 #: task_manager/users/views.py
 msgid "User is successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
+
+#: task_manager/users/views.py
+msgid "You're already sign up..."
+msgstr "Вы уже зарегистрированы"
 
 #: task_manager/users/views.py
 msgid "User is successfully changed"
@@ -145,12 +149,11 @@ msgstr "Войти"
 msgid "You're already sign in..."
 msgstr "Вы уже вошли..."
 
-#: templates/auth/login.html templates/users/create.html
+#: templates/auth/login.html
 msgid "Back to home"
 msgstr "Вернуться на домашнюю страницу"
 
 #: templates/auth/login.html templates/components/navbar.html
-#: templates/users/create.html
 msgid "Sign out"
 msgstr "Выход"
 
@@ -177,6 +180,10 @@ msgstr "Задачи"
 #: templates/components/navbar.html
 msgid "Sign up"
 msgstr "Регистрация"
+
+#: templates/components/simple_form.html templates/tasks/list.html
+msgid "Submit"
+msgstr "Подтвердить"
 
 #: templates/home.html
 msgid "Welcome!"
@@ -235,19 +242,22 @@ msgid "ID"
 msgstr "ID"
 
 #: templates/labels/list.html templates/statuses/list.html
-#: templates/tasks/list.html templates/users/list.html
+#: templates/tasks/card.html templates/tasks/list.html
+#: templates/users/list.html
 msgid "Date create"
 msgstr "Дата создания"
 
 #: templates/labels/list.html templates/labels/update.html
 #: templates/statuses/list.html templates/statuses/update.html
-#: templates/tasks/list.html templates/tasks/update.html
-#: templates/users/list.html templates/users/update.html
+#: templates/tasks/card.html templates/tasks/list.html
+#: templates/tasks/update.html templates/users/list.html
+#: templates/users/update.html
 msgid "Change"
 msgstr "Изменить"
 
 #: templates/labels/list.html templates/statuses/list.html
-#: templates/tasks/list.html templates/users/list.html
+#: templates/tasks/card.html templates/tasks/list.html
+#: templates/users/list.html
 msgid "Delete"
 msgstr "Удалить"
 
@@ -267,6 +277,14 @@ msgstr "Удалить статус"
 msgid "Change status"
 msgstr "Изменить статус"
 
+#: templates/tasks/card.html
+msgid "Task view"
+msgstr "Просмотр задачи"
+
+#: templates/tasks/card.html templates/tasks/list.html
+msgid "Author"
+msgstr "Автор"
+
 #: templates/tasks/create.html templates/tasks/list.html
 msgid "Create task"
 msgstr "Создать задачу"
@@ -279,14 +297,6 @@ msgstr "Удалить метку"
 msgid "Filter"
 msgstr "Фильтр"
 
-#: templates/tasks/list.html
-msgid "Submit"
-msgstr "Подтвердить"
-
-#: templates/tasks/list.html
-msgid "Author"
-msgstr "Автор"
-
 #: templates/tasks/update.html
 msgid "Change task"
 msgstr "Изменить задачу"
@@ -298,10 +308,6 @@ msgstr "Зарегистрировать"
 #: templates/users/create.html
 msgid "Please enter your data to sign up"
 msgstr "Введите свои данные для регистрации"
-
-#: templates/users/create.html
-msgid "You're already sign up..."
-msgstr "Вы уже зарегистрированы"
 
 #: templates/users/delete.html
 msgid "Delete user"

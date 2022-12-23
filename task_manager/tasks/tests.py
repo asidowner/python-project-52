@@ -18,6 +18,7 @@ class TaskTest(AbstractCRUDTest, TestCase):
             update_redirect='tasks:list',
             delete='tasks:delete',
             delete_redirect='tasks:list',
+            card='tasks:card',
         )
         self.form_fields: list = ['name',
                                   'description',
@@ -116,6 +117,25 @@ class TaskTest(AbstractCRUDTest, TestCase):
 
         self.assertNotIn(second_obj.obj.name,
                          response.rendered_content)
+
+    def test_task_card(self):
+        self._make_login()
+        obj_data = self._process_create()
+        obj = obj_data.obj
+
+        data_link = self._get_link(self.links.card, pk=obj.id)
+        response = self._get_request(data_link)
+
+        desired_keys = [
+            'name',
+            'description',
+            'status',
+        ]
+        for key in desired_keys:
+            self.assertIn(
+                str(getattr(obj, key)),
+                response.rendered_content
+            )
 
     def _get_status(self) -> TaskStatus:
         status: TaskStatus = TaskStatus(

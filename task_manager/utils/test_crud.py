@@ -26,6 +26,7 @@ class LinkData(BaseModel):
     update_redirect: str
     delete: str
     delete_redirect: str
+    card: str = None
 
 
 class CreateProcessResult(BaseModel):

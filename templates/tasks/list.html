@@ -45,7 +45,7 @@
             {% for task in object_list %}
                 <tr>
                     <th scope="row">{{ task.id }}</th>
-                    <td>{{ task.name }}</td>
+                    <td><a href="{% url 'tasks:card' pk=task.id %}">{{ task.name }}</a></td>
                     <td>{{ task.status }}</td>
                     <td>{{ task.author }}</td>
                     <td>{{ task.executor }}</td>

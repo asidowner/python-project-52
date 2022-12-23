@@ -21,6 +21,12 @@ class TaskListView(CustomLoginRequiredMixin,
     filterset_class = filters.TaskFilter
 
 
+class TaskCardView(CustomLoginRequiredMixin,
+                   generic.DetailView):
+    model = models.Task
+    template_name = 'tasks/card.html'
+
+
 class TaskCreateView(CustomLoginRequiredMixin,
                      SuccessMessageMixin,
                      generic.CreateView):
