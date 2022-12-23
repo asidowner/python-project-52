@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-23 13:58+0400\n"
+"POT-Creation-Date: 2022-12-23 14:08+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -185,7 +185,7 @@ msgstr "Задачи"
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: templates/components/simple_form.html templates/tasks/list.html
+#: templates/components/simple_form.html
 msgid "Submit"
 msgstr "Подтвердить"
 
@@ -300,6 +300,10 @@ msgstr "Удалить метку"
 #: templates/tasks/list.html
 msgid "Filter"
 msgstr "Фильтр"
+
+#: templates/tasks/list.html
+msgid "Show"
+msgstr "Показать"
 
 #: templates/tasks/update.html
 msgid "Change task"
