@@ -48,7 +48,7 @@ msgstr "Метка успешно удалена"
 
 #: task_manager/labels/views.py
 msgid "It is impossible to delete a label because it is in use"
-msgstr "Невозможно удалить метку, потому что он используется"
+msgstr "Невозможно удалить метку, потому что она используется"
 
 #: task_manager/mixins.py
 msgid "You are not logged in! Please log in."

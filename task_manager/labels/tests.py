@@ -5,7 +5,7 @@ from django.test import TestCase
 from task_manager.utils.test_crud import AbstractCRUDTest, LinkData
 
 
-class StatusTest(AbstractCRUDTest, TestCase):
+class LabelsTest(AbstractCRUDTest, TestCase):
     def _init_test_data(self):
         self.links: LinkData = LinkData(
             list='labels:list',

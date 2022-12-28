@@ -2,7 +2,6 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.contrib import messages
-from django.db.models import ProtectedError
 
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -10,6 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 from task_manager.mixins import CustomLoginRequiredMixin
 from task_manager.labels import models, forms
+from task_manager.tasks import models as task_models
 
 
 _CREATE_LABEL_SUCCESS_MESSAGE = _('Label successfully created')
@@ -50,14 +50,19 @@ class LabelDeleteView(CustomLoginRequiredMixin,
     template_name = 'labels/delete.html'
     success_url = reverse_lazy('labels:list')
     success_message = _DELETE_LABEL_SUCCESS_MESSAGE
-    error_url = reverse_lazy('statuses:list')
+    error_url = reverse_lazy('labels:list')
     error_message = _DELETE_LABEL_ERROR_MESSAGE
 
     def form_valid(self, form):
-        try:
-            self.object.delete()
-        except ProtectedError:
+        if self._is_have_task_with_this_label():
             messages.error(self.request, self.error_message)
             return redirect(self.error_url)
+
+        self.object.delete()
         messages.success(self.request, self.success_message)
         return redirect(self.success_url)
+
+    def _is_have_task_with_this_label(self):
+        return task_models.Task.objects.filter(
+            labels__id=self.kwargs['pk']
+        ).exists()
